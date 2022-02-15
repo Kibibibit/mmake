@@ -1,0 +1,6 @@
+default-name: main
+default-version: c++14
+default-compiler: g++
+default-cflags:
+  - Wall
+  - Werror
