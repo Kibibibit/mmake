@@ -5,10 +5,9 @@ import yaml
 import sys
 import os
 
-CONFIG_PATH = "/home/danielmills/.scripts/mmake/config.yaml"
+CONFIG_PATH = os.path.dirname(os.path.abspath(__file__))+"/config.yaml"
 DEPS_PATH = "deps.yaml"
 MAKE_PATH = "Makefile"
-
 
 DEFAULT_NAME = "default-name"
 FIELD_NAME = "name"
@@ -198,6 +197,8 @@ if __name__ == "__main__":
         if (filename.endswith(".cpp")):
             oFiles += filename.replace(".cpp",".o") + " "
 
+    if (not FIELD_LIBS in deps.keys()):
+        deps[FIELD_LIBS] = []
     for i in deps[FIELD_LIBS]:
         libs += f"-l{i} "
     
